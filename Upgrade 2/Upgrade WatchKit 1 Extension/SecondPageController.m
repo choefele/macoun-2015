@@ -11,6 +11,7 @@
 @interface SecondPageController ()
 
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *label;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfacePicker *picker;
 
 @end
 
@@ -20,6 +21,26 @@
     [super awakeWithContext:context];
 
     [self.label setText:@"Updated Label"];
+}
+
+- (void)willActivate
+{
+    [super willActivate];
+
+    [self animateWithDuration:0.5 animations:^{
+        [self.label setHorizontalAlignment:WKInterfaceObjectHorizontalAlignmentRight];
+    }];
+
+    NSMutableArray *items = [[NSMutableArray alloc] init];
+    for (NSUInteger index = 0; index <= 100; index++) {
+        NSString *imageName = [NSString stringWithFormat:@"single%dsuffix", index];
+        WKImage *image = [WKImage imageWithImageName:imageName];
+        WKPickerItem *item = [[WKPickerItem alloc] init];
+        item.caption = imageName;
+        item.contentImage = image;
+        [items addObject:item];
+    }
+    [self.picker setItems:items];
 }
 
 @end

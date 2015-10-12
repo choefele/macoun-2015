@@ -26,9 +26,11 @@
                 <controller title="2nd Page" id="tXI-3f-xfH" customClass="SecondPageController">
                     <items>
                         <label alignment="left" text="Label" id="pFL-iU-lz8"/>
+                        <picker width="1" height="100" alignment="left" style="sequence" focusStyle="sequence" id="CHq-KB-AsF"/>
                     </items>
                     <connections>
                         <outlet property="label" destination="pFL-iU-lz8" id="m8a-hN-g92"/>
+                        <outlet property="picker" destination="CHq-KB-AsF" id="236-FA-t2c"/>
                     </connections>
                 </controller>
             </objects>
