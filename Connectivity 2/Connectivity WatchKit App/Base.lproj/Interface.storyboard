@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <group width="1" alignment="left" id="sXh-Z5-Xdb">
+                            <items>
+                                <button width="0.29999999999999999" alignment="left" title="-" id="eWa-Nl-A6d">
+                                    <connections>
+                                        <action selector="subtract" destination="AgC-eL-Hgc" id="NyC-md-68e"/>
+                                    </connections>
+                                </button>
+                                <label alignment="center" verticalAlignment="center" text="0" id="mHL-6Y-5O2"/>
+                                <button width="0.29999999999999999" alignment="right" title="+" id="D1V-TP-IE3">
+                                    <connections>
+                                        <action selector="add" destination="AgC-eL-Hgc" id="led-Hz-bQu"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="label" destination="mHL-6Y-5O2" id="Ffz-tu-DP0"/>
+                    </connections>
+                </controller>
+            </objects>
+        </scene>
+    </scenes>
+</document>
