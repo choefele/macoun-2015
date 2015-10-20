@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>Connectivity 6</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (void)willActivate
+{
+    [super willActivate];
+
+    // Based on WWDC 2015 Session 228
+    if (self.dataTask == nil || self.dataTask.state != NSURLSessionTaskStateRunning) {
+        NSURLSession *session = [NSURLSession sharedSession];
+        NSURL *url = [NSURL URLWithString:@"https://httpbin.org/delay/1"];
+        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+        [self askForAssertionWithSemaphore:semaphore];
+
+        self.dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            NSInteger statusCode = httpResponse ? httpResponse.statusCode : -1;
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                self.counter = statusCode;
+                [self releaseAssertionWithSemaphore:semaphore];
+            });
+        }];
+        [self.dataTask resume];
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>4A4989CB-0F06-4728-8C8A-0CBC42943ED3</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Connectivity 6</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>Upgrade 2</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    NSMutableArray *items = [[NSMutableArray alloc] init];
+    for (NSUInteger index = 0; index &lt;= 100; index++) {
+        NSString *imageName = [NSString stringWithFormat:@"single%dsuffix", index];
+        WKImage *image = [WKImage imageWithImageName:imageName];
+        WKPickerItem *item = [[WKPickerItem alloc] init];
+        item.caption = imageName;
+        item.contentImage = image;
+        [items addObject:item];
+    }
+    [self.picker setItems:items];
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>449B7D5D-79A2-47A6-9AD8-9D4EDD428133</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Upgrade 2</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
