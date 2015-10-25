@@ -78,7 +78,9 @@
 
 - (void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *, id> *)applicationContext {
     NSNumber *counter = [applicationContext objectForKey:@"counter"];
-    self.counter = counter.integerValue;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.counter = counter.integerValue;
+    });
 }
 
 - (IBAction)subtract {
